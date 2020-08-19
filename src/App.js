@@ -10,7 +10,7 @@ export default function App() {
 
   useEffect(()=>{
      db.collection('posts').onSnapshot(snapshot=>{
-       setPosts(snapshot.docs.map(doc=>doc.data()))
+       setPosts(snapshot.docs.map(doc=>({post:doc.data(),id:doc.id})))
      })
   },[])
 
@@ -20,8 +20,8 @@ export default function App() {
         <img className='appHeaderImg'
          src="https://stackblitz.com/files/instagram-clone-using-react-and-firebase/github/pranav589/instagram-clone-using-react-and-firebase/master/Instagram-name-logo-transparent-PNG.png" height="70px" width="100px"/>
       </div>
-      {posts.map(post=>(
-        <Post username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+      {posts.map(({post,id})=>(
+        <Post username={post.username} caption={post.caption} imageUrl={post.imageUrl} key={id}/>
       ))}
        
        
