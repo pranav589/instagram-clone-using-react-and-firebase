@@ -12,9 +12,9 @@ function Post({username,caption,imageUrl}){
        {/*header = profile pic + username */}
 
        {/*img */}
-      <img  className='postImg' src="https://stackblitz.com/files/instagram-clone-using-react-and-firebase/github/pranav589/instagram-clone-using-react-and-firebase/master/Instagram-name-logo-transparent-PNG.png"/>
+      <img  className='postImg' src={imageUrl}/>
 
-      <h4 className='postText'><strong>{username}:</strong> {caption}</h4>
+      <h4 className='postText'><strong>{username}</strong> {caption}</h4>
        {/*username+captions */}
 
     </div>
