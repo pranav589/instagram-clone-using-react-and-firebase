@@ -1,3 +1,15 @@
-h1, p {
-  font-family: Lato;
+*{
+  margin: 0;
+}
+
+.app{
+  background: #fafafa;
+  
+}
+
+.appHeader{
+  background: white;
+  object-fit: contain;
+  border-bottom: 1px solid lightgray;
+  border-collapse: collapse
 }
