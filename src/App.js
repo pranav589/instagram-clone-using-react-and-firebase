@@ -43,7 +43,8 @@ function App() {
   
  
   useEffect(()=>{
-     const unsubscribe=auth.onAuthStateChanged((authUser)=>{
+     const unsubsc
+     ribe=auth.onAuthStateChanged((authUser)=>{
        if(authUser){
           //if the user has logged in
           console.log(authUser)
