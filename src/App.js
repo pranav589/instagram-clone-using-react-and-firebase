@@ -5,6 +5,7 @@ import {db,auth} from './firebase'
 import {Modal} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 import {Button,Input} from '@material-ui/core'
+import ImageUpload from './components/ImageUpload'
 
 function getModalStyle() {
   const top = 50 
@@ -86,13 +87,15 @@ function App() {
 
   return(
     <div className='app'>
+    {user && user.displayName ? (  <ImageUpload username={user.displayName}/>):(<h3>Please login to upload your photo</h3>)}
+
     <Modal
     open={open}
     onClose={()=>setOpen(false)} >
     <div style={modalStyle} className={classes.paper}>
     <form className="appSignup">
      <center>
-     <img className='appHeaderImg' src="https://stackblitz.com/files/instagram-clone-using-react-and-firebase/github/pranav589/instagram-clone-using-react-and-firebase/master/Instagram-name-logo-transparent-PNG.png" height="70px" width="100px"/><br/>
+     <img className='appHeaderImg' src="https://stackblitz.com/files/instagram-clone-using-react-and-firebase/github/pranav589/instagram-clone-using-react-and-firebanse/master/Instagram-name-logo-transparent-PNG.png" height="70px" width="100px"/><br/>
 
       <Input placeholder="username" type="text" value={username} onChange={e=>setUsername(e.target.value)}/>
 
