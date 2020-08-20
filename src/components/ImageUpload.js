@@ -28,11 +28,11 @@ function ImageUpload({username}){
       alert(err.message)
     },()=>{
      storage.ref("images").child(image.name).getDownloadURL().then(url=>{console.log(url)
-       db.collection("posts").push({
+       db.collection("posts").add({
          caption:caption,
          username:username,
          imageUrl:url,
-         timestamp:firebase.firestore.FieldValue.serverTimestamp()
+         timestamp:firebase.firestore.FieldValue.serverTimaddamp()
          
        })
        
