@@ -62,7 +62,7 @@ function App() {
 
   useEffect(()=>{
     //this is code fires when app.js loads
-     db.collection('posts').onSnapshot(snapshot=>{
+     db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot=>{
        //every time a change in the post (add/remove) happens, this code fires
        setPosts(snapshot.docs.map(doc=>({post:doc.data(),id:doc.id})))
      })
@@ -87,7 +87,7 @@ function App() {
 
   return(
     <div className='app'>
-    {user && user.displayName ? (  <ImageUpload username={user.displayName}/>):(<h3>Please login to upload your photo</h3>)}
+    {/*{user && user.displayName ? (  <ImageUpload username={user.displayName}/>):(<h3>Please login to upload your photo</h3>)}*/}
 
     <Modal
     open={open}
@@ -129,17 +129,21 @@ function App() {
       <div className='appHeader'>
         <img className='appHeaderImg'
          src="https://stackblitz.com/files/instagram-clone-using-react-and-firebase/github/pranav589/instagram-clone-using-react-and-firebase/master/Instagram-name-logo-transparent-PNG.png" height="70px" width="100px"/>
-      </div>
+      
       {user ? (<Button onClick={()=>auth.signOut()}>Logout</Button>):(
       <div className='loginContainer'>
           <Button onClick={()=>setOpenSignin(true)}>Sign In</Button>
           <Button onClick={()=>setOpen(true)}>Sign Up</Button>
       </div>)}
-
+      </div>
+     {/*{user && user.displayName ? <ImageUpload username={user.displayName}/> : <h3>Login to upload</h3>}*/}
+    <div className="appPosts">
       {posts.map(({post,id})=>(
-        <Post username={post.username} caption={post.caption} imageUrl={post.imageUrl} key={id}/>
+        <Post username={post.username} caption={post.caption} imageUrl={post.imageUrl} key={id} postId={id}/>
       ))}
-       
+    </div>
+      {user && user.displayName ? <ImageUpload username={user.displayName}/> : <h3>Login to upload</h3>}
+        
        
     </div>
   );

@@ -11,10 +11,27 @@
   background: white;
   object-fit: contain;
   border-bottom: 1px solid lightgray;
-  border-collapse: collapse
+  border-collapse: collapse;
+  display: flex;
+  justify-content: space-between
+}
+
+.appHeaderImg{
+  object-fit: contain
+}
+
+.appPosts{
+  padding: 20px
 }
 
 .appSignup{
   display: flex;
   flex-direction: column;
 }
+
+
+.loginContainer{
+  margin-top: 14px
+}
+
+
