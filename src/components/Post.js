@@ -1,11 +1,22 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import  '../Post.css'
+import {db} from '../firebase'
 import Avatar from '@material-ui/core/Avatar'
 
 function Post({username,caption,imageUrl,postId}){
-  const
-
-
+  const [comments,setComments]=useState([])
+  useEffect(()=>{
+    let unsubscribe;
+    if(postId){
+      unsubscribe=db.collection("posts").doc(postId).collection("comments").onSnapshot(snapshot=>{
+        setComments(snapshot.docs.map(doc=>doc.data()))
+      })
+    }
+    return ()=>{
+      unsubscribe()
+    }
+  },[postId])
+ 
   return(
     <div className="post">
     <div className='postHeader'>
