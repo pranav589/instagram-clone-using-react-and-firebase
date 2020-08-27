@@ -8,6 +8,9 @@
 }
 
 .appHeader{
+  position: sticky;
+  top:0;
+  z-index: 1;
   background: white;
   object-fit: contain;
   border-bottom: 1px solid lightgray;

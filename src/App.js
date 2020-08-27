@@ -139,7 +139,7 @@ function App() {
      {/*{user && user.displayName ? <ImageUpload username={user.displayName}/> : <h3>Login to upload</h3>}*/}
     <div className="appPosts">
       {posts.map(({post,id})=>(
-        <Post username={post.username} caption={post.caption} imageUrl={post.imageUrl} key={id} postId={id}/>
+        <Post username={post.username} caption={post.caption} imageUrl={post.imageUrl} key={id} postId={id} user={user}/>
       ))}
     </div>
       {user && user.displayName ? <ImageUpload username={user.displayName}/> : <h3>Login to upload</h3>}
