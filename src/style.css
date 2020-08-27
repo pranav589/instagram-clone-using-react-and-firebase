@@ -4,6 +4,10 @@
 
 .app{
   background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
   
 }
 
@@ -16,7 +20,9 @@
   border-bottom: 1px solid lightgray;
   border-collapse: collapse;
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  width:100%
+
 }
 
 .appHeaderImg{
