@@ -11,6 +11,7 @@
   
 }
 
-.image_upload{
-  width:100%
+.imageupload_progress,.input{
+  width:100%;
+  margin-bottom:5px
 }
