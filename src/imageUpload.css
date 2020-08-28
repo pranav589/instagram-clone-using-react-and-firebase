@@ -7,11 +7,11 @@
   margin-top: 10px;
   margin-bottom: 10px;
   background: white;
-  border-top: 1px solid lightgray
+  padding:5px
   
 }
 
-.imageupload_progress,.input{
+.imageupload_progress,.input,.inputFile{
   width:100%;
   margin-bottom:5px
 }

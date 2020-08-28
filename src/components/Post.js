@@ -3,7 +3,7 @@ import  '../Post.css'
 import {db} from '../firebase'
 import Avatar from '@material-ui/core/Avatar'
 import firebase from 'firebase'
-import {Button,Modal,Input} from "@material-ui/core"
+import {Button,Modal,Input,Button} from "@material-ui/core"
 import {makeStyles} from "@material-ui/core/styles"
 
 const useStyles=makeStyles((theme)=>({
@@ -75,8 +75,8 @@ function Post({username,caption,imageUrl,postId,user}){
       </div>
 
      {(user && user.displayName===username) ?(<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-      <button onClick={e=>db.collection('posts').doc(postId).delete()}>Delete</button>
-      <button style={{marginLeft:"5px"}} onClick={e=>setOpen(true)}>Edit</button>
+      <button style={{border:"0",outline:"0",backgroundColor:"transparent"}} onClick={e=>db.collection('posts').doc(postId).delete()}>Delete</button>
+      <button  style={{border:"0",outline:"0",backgroundColor:"transparent"}} onClick={e=>setOpen(true)}>Edit</button>
       </div>) : (null)}
     </div>
        {/*header = profile pic + username */}
