@@ -73,10 +73,11 @@ function Post({username,caption,imageUrl,postId,user}){
       <Avatar className='postAvatar' alt="Pranav" src="">P</Avatar>
       <h3>{username}</h3>
       </div>
-      <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+
+     {(user && user.displayName===username) ?(<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
       <button onClick={e=>db.collection('posts').doc(postId).delete()}>Delete</button>
       <button style={{marginLeft:"5px"}} onClick={e=>setOpen(true)}>Edit</button>
-      </div>
+      </div>) : (null)}
     </div>
        {/*header = profile pic + username */}
       
