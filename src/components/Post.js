@@ -4,6 +4,7 @@ import {db} from '../firebase'
 import Avatar from '@material-ui/core/Avatar'
 import firebase from 'firebase'
 
+
 function Post({username,caption,imageUrl,postId,user}){
   const [comments,setComments]=useState([])
   const [comment,setComment]=useState('')
@@ -36,11 +37,14 @@ function Post({username,caption,imageUrl,postId,user}){
   return(
     <div className="post">
     <div className='postHeader'>
+      <div className="postName">
       <Avatar className='postAvatar' alt="Pranav" src="">P</Avatar>
       <h3>{username}</h3>
+      </div>
+      <button onClick={e=>db.collection('posts').doc(postId).delete()}>Delete</button>
     </div>
        {/*header = profile pic + username */}
-
+      
        {/*img */}
       <img  className='postImg' src={imageUrl}/>
 
