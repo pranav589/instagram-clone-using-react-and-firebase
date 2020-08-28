@@ -92,6 +92,7 @@ function Post({username,caption,imageUrl,postId,user}){
          {comments.map(comment=>(
            <p>
              <strong>{comment.username}</strong> {comment.text}
+
            </p>
          ))}
      </div>
